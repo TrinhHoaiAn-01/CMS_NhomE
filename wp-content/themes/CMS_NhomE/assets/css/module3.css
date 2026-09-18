@@ -12,5 +12,8 @@
 }
 
 .cms-footer a { color: #fff; }
+.cms-footer-links { list-style: none; padding: 0; margin: 0 0 24px; }
+.cms-footer-links li { padding: 5px 0; overflow-wrap: anywhere; }
+.cms-footer-links a:hover { color: #e2e8f0; text-decoration: underline; }
 .cms-footer-social { display: flex; gap: 18px; justify-content: center; margin: 24px 0; }
 .cms-footer-copy { text-align: center; margin: 0; }
