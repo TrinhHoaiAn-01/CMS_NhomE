@@ -1,0 +1,47 @@
+.module-4-search-section {
+    max-width: 1140px;
+    margin: 50px auto 70px;
+    padding: 0 15px;
+    font-family: Arial, sans-serif;
+}
+
+.module-4-card {
+    background: #fff;
+    border: 1px solid #eef0f2;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .05);
+    overflow: hidden;
+}
+
+.module-4-top-content { padding: 45px 25px 35px; text-align: center; }
+.module-4-title { font-size: 26px; font-weight: 700; overflow-wrap: anywhere; }
+.module-4-title .text-red { color: #d90429; }
+.module-4-subtitle { color: #555; font-size: 15px; line-height: 1.6; max-width: 530px; margin: 14px auto 0; }
+.module-4-title .text-query { color: #111827; overflow-wrap: anywhere; }
+.module-4-search-banner { background: #f6f1e5; padding: 45px 30px; }
+.module-4-search-form {
+    max-width: 650px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 6px 8px 6px 18px;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .06);
+}
+.module-4-search-icon { color: #000; font-size: 19px; }
+.module-4-search-input { flex: 1; min-width: 0; border: 0; outline: 0; font-size: 15.5px; }
+.module-4-search-btn { border: 0; border-radius: 4px; padding: 9px 24px; background: #28a745; color: #fff; cursor: pointer; }
+.module-4-search-btn:hover { background: #218838; }
+
+@media (max-width: 576px) {
+    .module-4-top-content { padding: 30px 15px 25px; }
+    .module-4-title { font-size: 22px; }
+    .module-4-subtitle { font-size: 14px; }
+    .module-4-search-banner { padding: 30px 15px; }
+    .module-4-search-form { flex-wrap: wrap; gap: 8px; padding: 8px 10px; }
+    .module-4-search-icon { display: none; }
+    .module-4-search-input,
+    .module-4-search-btn { flex: 1 1 100%; width: 100%; }
+}
