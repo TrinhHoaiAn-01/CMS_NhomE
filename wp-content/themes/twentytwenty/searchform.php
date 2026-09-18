@@ -24,24 +24,25 @@ if ( empty( $twentytwenty_aria_label ) && ! empty( $args['label'] ) ) {
 }
 ?>
 <form
-    role="search"
-    method="get"
-    class="cms-header-search"
-    action="<?php echo esc_url(home_url('/')); ?>"
+	role="search"
+	method="get"
+	class="cms-header-search"
+	action="<?php echo esc_url( home_url( '/' ) ); ?>"
 >
-    <label class="screen-reader-text" for="cms-search-input">
-        Search for:
-    </label>
+	<label class="screen-reader-text" for="cms-search-input">
+		<?php _e( 'Search for:', 'twentytwenty' ); ?>
+	</label>
 
-    <input
-        id="cms-search-input"
-        type="search"
-        name="s"
-        value="<?php echo esc_attr(get_search_query()); ?>"
-        placeholder="Search..."
-    >
+	<input
+		id="cms-search-input"
+		class="cms-search-input"
+		type="search"
+		name="s"
+		value="<?php echo esc_attr( get_search_query() ); ?>"
+		placeholder="Search"
+	>
 
-    <button type="submit">
-        Search
-    </button>
+	<button class="cms-search-submit" type="submit">
+		Submit
+	</button>
 </form>

@@ -1,113 +1,697 @@
-/* ==========================
+/* =========================================================
    MODULE 1 - HEADER
-   ========================== */
+   Twenty Twenty custom header
+   ========================================================= */
 
-.cms-header-tools {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 16px;
-    margin-left: auto;
+
+/* ---------------------------------------------------------
+   1. Main header
+   --------------------------------------------------------- */
+
+#site-header {
+	background: #f8f8f8;
+	border: 0;
+}
+
+#site-header .header-inner {
+	width: 100%;
+	max-width: none;
+	min-height: 95px;
+
+	padding: 0;
+
+	display: flex;
+	align-items: stretch;
+
+	background: #f8f8f8;
 }
 
 
-/* Search */
+/* ---------------------------------------------------------
+   2. Site title / logo
+   "Group C" block
+   --------------------------------------------------------- */
 
-.cms-header-search {
-    display: flex;
-    align-items: stretch;
-    margin: 0;
+#site-header .header-titles-wrapper {
+	margin: 0;
+	padding: 0 22px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	flex-shrink: 0;
+
+	background: #fff;
 }
 
-.cms-header-search input[type="search"] {
-    width: 220px;
-    min-height: 40px;
-    padding: 8px 12px;
-    border: 1px solid #d5d5d5;
-    border-radius: 4px 0 0 4px;
-    font-size: 14px;
+#site-header .header-titles {
+	margin: 0;
 }
 
-.cms-header-search button {
-    min-height: 40px;
-    padding: 8px 16px;
-    border: 0;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
+#site-header .site-title {
+	margin: 0;
+}
+
+#site-header .site-title a {
+	color: #666;
+	font-size: 27px;
+	font-weight: 400;
+	line-height: 1;
+	text-decoration: none;
+}
+
+/* Hide description if Twenty Twenty shows one */
+#site-header .site-description {
+	display: none;
+}
+
+
+/* ---------------------------------------------------------
+   3. Desktop navigation area
+   --------------------------------------------------------- */
+
+#site-header .header-navigation-wrapper {
+	flex: 1;
+
+	display: flex;
+	align-items: stretch;
+
+	margin: 0;
+}
+
+
+/*
+ * Flatten the WordPress menu wrappers.
+ *
+ * This lets the individual menu <li> elements participate
+ * directly in our flex layout, without changing wp_nav_menu().
+ */
+@media (min-width: 1001px) {
+
+	#site-header .primary-menu-wrapper,
+	#site-header .primary-menu {
+		display: contents;
+	}
+
+	#site-header .cms-header-tools {
+		display: contents;
+	}
+}
+
+
+/* ---------------------------------------------------------
+   4. Menu links
+   --------------------------------------------------------- */
+
+#site-header .primary-menu > li {
+	margin: 0;
+	padding: 0;
+
+	display: flex;
+	align-items: center;
+
+	order: 30;
+}
+
+#site-header .primary-menu > li > a {
+	height: 100%;
+
+	padding: 0 24px;
+
+	display: flex;
+	align-items: center;
+
+	color: #666;
+
+	font-size: 18px;
+	font-weight: 400;
+
+	text-decoration: none;
+}
+
+
+/* HOME = first menu item */
+
+#site-header .primary-menu > li:first-child {
+	order: 10;
+
+	background: #e9e9e9;
+}
+
+#site-header .primary-menu > li:first-child > a {
+	padding-left: 22px;
+	padding-right: 22px;
+}
+
+
+/* Normal hover */
+
+#site-header .primary-menu > li:not(:first-child) > a:hover {
+	color: #222;
+	background: #f0f0f0;
+}
+
+
+/* Remove Twenty Twenty underline effects */
+
+#site-header .primary-menu a {
+	text-decoration: none;
+}
+
+#site-header .primary-menu a:hover,
+#site-header .primary-menu a:focus {
+	text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------
+   5. Visible search form
+   --------------------------------------------------------- */
+
+#site-header .cms-header-search {
+	order: 20;
+
+	display: flex;
+	align-items: center;
+
+	margin: 0;
+	padding: 0 24px;
+
+	flex-shrink: 0;
+}
+
+
+/* Search input */
+
+#site-header .cms-search-input {
+	width: 300px;
+	height: 47px;
+
+	margin: 0;
+	padding: 0 18px;
+
+	background: #fff;
+
+	border: 2px solid #ddd;
+	border-radius: 6px 0 0 6px;
+
+	box-shadow: none;
+
+	color: #555;
+
+	font-family: inherit;
+	font-size: 17px;
+	font-weight: 400;
+
+	outline: none;
+}
+
+
+#site-header .cms-search-input::placeholder {
+	color: #999;
+	opacity: 1;
+}
+
+
+#site-header .cms-search-input:focus {
+	border-color: #aaa;
+}
+
+
+/* Submit button */
+
+#site-header .cms-search-submit {
+	width: 106px;
+	height: 47px;
+
+	margin: 0 0 0 5px;
+	padding: 0 18px;
+
+	background: #fff;
+
+	border: 2px solid #ddd;
+	border-radius: 6px;
+
+	color: #555;
+
+	font-family: inherit;
+	font-size: 17px;
+	font-weight: 400;
+	text-transform: none;
+	letter-spacing: normal;
+
+	cursor: pointer;
+}
+
+
+#site-header .cms-search-submit:hover {
+	background: #f1f1f1;
+	border-color: #ccc;
+	text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------
+   6. Original Twenty Twenty Menu + Search controls
+   --------------------------------------------------------- */
+
+#site-header .header-toggles {
+	order: 40;
+
+	display: flex;
+	align-items: stretch;
+
+	margin: 0 0 0 auto;
+}
+
+
+#site-header .header-toggles .toggle-wrapper {
+	margin: 0;
+}
+
+
+#site-header .header-toggles .toggle {
+	width: 86px;
+	height: 100%;
+
+	padding: 0 10px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: #555;
+
+	background: transparent;
+}
+
+
+#site-header .header-toggles .toggle-inner {
+	padding: 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	gap: 4px;
+}
+
+
+/* Icon sizing */
+
+#site-header .header-toggles svg {
+	width: 28px;
+	height: 28px;
+}
+
+
+#site-header .header-toggles .toggle-text {
+	position: static;
+
+	width: auto;
+	height: auto;
+
+	overflow: visible;
+	clip: auto;
+
+	color: #777;
+
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+
+/* Don't use Twenty Twenty's big red button treatment */
+
+#site-header button.toggle {
+	background: transparent;
+	color: #222;
+}
+
+
+/* ---------------------------------------------------------
+   7. Account
+   --------------------------------------------------------- */
+
+#site-header .cms-account {
+	order: 50;
+
+	position: relative;
+
+	width: 100px;
+
+	display: flex;
+	align-items: stretch;
+
+	flex-shrink: 0;
+}
+
+
+#site-header .cms-account-button {
+	width: 100%;
+
+	margin: 0;
+	padding: 8px 8px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	gap: 3px;
+
+	background: transparent;
+	border: 0;
+
+	color: #666;
+
+	font-family: inherit;
+	font-size: 16px;
+	font-weight: 400;
+	text-transform: none;
+	letter-spacing: normal;
+
+	cursor: pointer;
+}
+
+
+#site-header .cms-account-icon {
+	display: block;
+	height: 34px;
+}
+
+
+#site-header .cms-account-icon svg {
+	width: 34px;
+	height: 34px;
+
+	fill: none;
+	stroke: #777;
+	stroke-width: 1.6;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+
+#site-header .cms-account-label {
+	white-space: nowrap;
+}
+
+
+#site-header .cms-account-arrow {
+	margin-left: 3px;
+	font-size: 12px;
 }
 
 
 /* Account dropdown */
 
-.cms-account {
-    position: relative;
-}
+#site-header .cms-account-menu {
+	position: absolute;
 
-.cms-account-button {
-    min-height: 40px;
-    padding: 8px 14px;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-}
+	top: calc(100% - 4px);
+	right: 8px;
 
-.cms-account-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
+	z-index: 99999;
 
-    display: none;
+	display: none;
 
-    min-width: 180px;
-    padding: 8px 0;
+	width: 190px;
+	min-width: 190px;
 
-    background: #fff;
-    border: 1px solid #ddd;
+	padding: 8px 0;
 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+	background: #fff;
 
-    z-index: 9999;
-}
+	border: 1px solid #ddd;
+	border-radius: 4px;
 
-.cms-account:hover .cms-account-menu,
-.cms-account:focus-within .cms-account-menu {
-    display: block;
-}
-
-.cms-account-menu a,
-.cms-account-name {
-    display: block;
-    padding: 9px 16px;
-    text-decoration: none;
-}
-
-.cms-account-menu a:hover {
-    background: #f5f5f5;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
 }
 
 
-/* Responsive */
+#site-header .cms-account:hover .cms-account-menu,
+#site-header .cms-account:focus-within .cms-account-menu {
+	display: block;
+}
 
-@media (max-width: 768px) {
 
-    .cms-header-tools {
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        margin-top: 15px;
-    }
+#site-header .cms-account-menu a,
+#site-header .cms-account-name {
+	display: block;
 
-    .cms-header-search {
-        width: 100%;
-    }
+	padding: 10px 16px;
 
-    .cms-header-search input[type="search"] {
-        width: 100%;
-        flex: 1;
-    }
+	color: #555;
 
-    .cms-account-menu {
-        left: 0;
-        right: auto;
-    }
+	font-size: 14px;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+
+#site-header .cms-account-menu a:hover {
+	background: #f3f3f3;
+	color: #222;
+}
+
+
+/* ---------------------------------------------------------
+   8. Remove some default Twenty Twenty spacing
+   --------------------------------------------------------- */
+
+#site-header ul,
+#site-header li {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) and (min-width: 1001px) {
+
+	#site-header .site-title a {
+		font-size: 22px;
+	}
+
+	#site-header .header-titles-wrapper {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+	#site-header .primary-menu > li > a {
+		padding-left: 14px;
+		padding-right: 14px;
+
+		font-size: 15px;
+	}
+
+	#site-header .cms-header-search {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	#site-header .cms-search-input {
+		width: 210px;
+	}
+
+	#site-header .cms-search-submit {
+		width: 80px;
+	}
+
+	#site-header .header-toggles .toggle {
+		width: 70px;
+	}
+
+	#site-header .cms-account {
+		width: 85px;
+	}
+}
+
+
+/* =========================================================
+   MOBILE / SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+	#site-header .header-inner {
+		min-height: auto;
+
+		display: flex;
+		flex-wrap: wrap;
+
+		padding: 0;
+	}
+
+
+	/* Top row */
+
+	#site-header .header-titles-wrapper {
+		width: 100%;
+		min-height: 70px;
+
+		padding: 0 20px;
+
+		justify-content: space-between;
+
+		background: #fff;
+	}
+
+
+	#site-header .site-title a {
+		font-size: 24px;
+	}
+
+
+	/*
+	 * Twenty Twenty already provides its mobile menu toggle
+	 * inside .header-titles-wrapper, so let it remain.
+	 */
+
+	#site-header .mobile-nav-toggle {
+		display: block;
+	}
+
+
+	/* Navigation/search row */
+
+	#site-header .header-navigation-wrapper {
+		width: 100%;
+
+		display: flex;
+		flex-wrap: wrap;
+
+		padding: 15px 20px;
+
+		background: #f8f8f8;
+	}
+
+
+	/* Visible search uses full row */
+
+	#site-header .cms-header-tools {
+		width: 100%;
+
+		display: flex;
+		align-items: center;
+
+		gap: 12px;
+	}
+
+
+	#site-header .cms-header-search {
+		width: 100%;
+
+		padding: 0;
+
+		display: flex;
+
+		order: initial;
+	}
+
+
+	#site-header .cms-search-input {
+		width: auto;
+		min-width: 0;
+
+		flex: 1;
+	}
+
+
+	#site-header .cms-search-submit {
+		width: auto;
+		min-width: 90px;
+	}
+
+
+	/* Account */
+
+	#site-header .cms-account {
+		width: 90px;
+		height: 55px;
+
+		flex-shrink: 0;
+	}
+
+
+	#site-header .cms-account-icon {
+		display: none;
+	}
+
+
+	#site-header .cms-account-button {
+		flex-direction: row;
+		font-size: 14px;
+	}
+
+
+	/* Desktop navigation/toggles are handled by Twenty Twenty */
+
+	#site-header .header-toggles {
+		display: none;
+	}
+
+	#site-header .primary-menu-wrapper {
+		display: none;
+	}
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+	#site-header .header-navigation-wrapper {
+		padding: 12px;
+	}
+
+
+	#site-header .cms-header-tools {
+		flex-wrap: wrap;
+	}
+
+
+	#site-header .cms-header-search {
+		width: 100%;
+	}
+
+
+	#site-header .cms-search-input {
+		height: 43px;
+
+		font-size: 15px;
+	}
+
+
+	#site-header .cms-search-submit {
+		height: 43px;
+		min-width: 76px;
+
+		padding-left: 12px;
+		padding-right: 12px;
+
+		font-size: 14px;
+	}
+
+
+	#site-header .cms-account {
+		width: auto;
+		height: 42px;
+
+		margin-left: auto;
+	}
+
+
+	#site-header .cms-account-menu {
+		right: 0;
+	}
 }
