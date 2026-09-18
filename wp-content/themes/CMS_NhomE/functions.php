@@ -841,3 +841,12 @@ function cms_nhome_module_assets() {
     wp_enqueue_script( 'cms-nhome-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), '4.6.2', true );
 }
 add_action( 'wp_enqueue_scripts', 'cms_nhome_module_assets' );
+
+function cms_nhome_search_posts_only( $query ) {
+    if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
+        $query->set( 'post_type', 'post' );
+        $query->set( 'orderby', 'date' );
+        $query->set( 'order', 'DESC' );
+    }
+}
+add_action( 'pre_get_posts', 'cms_nhome_search_posts_only' );

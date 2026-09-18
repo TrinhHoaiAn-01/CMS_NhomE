@@ -19,4 +19,7 @@
             </div>
         </article>
     <?php endwhile; ?>
+    <nav class="fit-search-pagination" aria-label="Phân trang kết quả tìm kiếm">
+        <?php the_posts_pagination( array( 'prev_text' => '« Trước', 'next_text' => 'Sau »' ) ); ?>
+    </nav>
 </div>
