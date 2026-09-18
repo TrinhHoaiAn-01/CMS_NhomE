@@ -34,3 +34,14 @@
 .module-4-search-input { flex: 1; min-width: 0; border: 0; outline: 0; font-size: 15.5px; }
 .module-4-search-btn { border: 0; border-radius: 4px; padding: 9px 24px; background: #28a745; color: #fff; cursor: pointer; }
 .module-4-search-btn:hover { background: #218838; }
+
+@media (max-width: 576px) {
+    .module-4-top-content { padding: 30px 15px 25px; }
+    .module-4-title { font-size: 22px; }
+    .module-4-subtitle { font-size: 14px; }
+    .module-4-search-banner { padding: 30px 15px; }
+    .module-4-search-form { flex-wrap: wrap; gap: 8px; padding: 8px 10px; }
+    .module-4-search-icon { display: none; }
+    .module-4-search-input,
+    .module-4-search-btn { flex: 1 1 100%; width: 100%; }
+}
