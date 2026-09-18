@@ -827,5 +827,11 @@ function CMS_NhomE_get_elements_array() {
 	 *
 	 * @param array $elements Array of elements.
 	 */
-	return apply_filters( 'CMS_NhomE_get_elements_array', $elements );
+return apply_filters( 'CMS_NhomE_get_elements_array', $elements );
 }
+
+function cms_nhome_module_assets() {
+    wp_enqueue_style( 'cms-nhome-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css', array(), '4.6.2' );
+    wp_enqueue_script( 'cms-nhome-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), '4.6.2', true );
+}
+add_action( 'wp_enqueue_scripts', 'cms_nhome_module_assets' );
