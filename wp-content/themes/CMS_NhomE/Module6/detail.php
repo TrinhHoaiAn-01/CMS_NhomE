@@ -14,6 +14,13 @@
                 </time>
             </header>
             <div class="fit-detail-divider"></div>
+            <div class="fit-detail-content">
+                <?php if ( has_post_thumbnail() ) : ?>
+                    <div class="fit-detail-thumb"><?php the_post_thumbnail( 'large' ); ?></div>
+                <?php endif; ?>
+                <?php the_content(); ?>
+                <?php wp_link_pages(); ?>
+            </div>
         </article>
     <?php endwhile; ?>
 </div>

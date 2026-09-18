@@ -18,3 +18,8 @@
 .fit-detail-date-badge .date-sep { width: 15px; height: 1px; margin: 3px 0; background: #222; }
 .fit-detail-date-badge .date-year { margin-left: 2px; }
 .fit-detail-divider { border-bottom: 1px solid #e2e8f0; margin: 18px 0 24px; }
+.fit-detail-content { color: #334155; font-size: 14.5px; line-height: 1.7; overflow-wrap: anywhere; }
+.fit-detail-content p { margin-bottom: 16px; }
+.fit-detail-content p:first-of-type { font-style: italic; color: #64748b; }
+.fit-detail-thumb { margin-bottom: 22px; text-align: center; }
+.fit-detail-thumb img { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, .08); }
