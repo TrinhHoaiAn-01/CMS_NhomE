@@ -1,0 +1,13 @@
+﻿# Local WordPress configuration and database dump
+/wp-config.php
+/db/
+
+# Generated and uploaded WordPress content
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/backup*/
+
+# Operating system files
+.DS_Store
+Thumbs.db
