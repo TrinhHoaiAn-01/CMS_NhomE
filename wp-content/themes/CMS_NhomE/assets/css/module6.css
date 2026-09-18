@@ -1,0 +1,20 @@
+.fit-detail-wrapper { max-width: 980px; margin: 30px auto 50px; padding: 0 15px; font-family: Arial, sans-serif; }
+.fit-detail-card { background: #fff; border: 1px solid #e2e8f0; padding: 30px 35px 40px; box-shadow: 0 1px 4px rgba(0, 0, 0, .04); }
+.fit-detail-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+.fit-detail-title { flex: 1; margin: 0; font-size: 26px; font-weight: 700; line-height: 1.35; color: #1e293b; }
+.fit-detail-date-badge {
+    flex: 0 0 62px;
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f5b82e;
+    color: #222;
+    font: 700 14px Georgia, serif;
+}
+.fit-detail-date-badge .date-fraction { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+.fit-detail-date-badge .date-sep { width: 15px; height: 1px; margin: 3px 0; background: #222; }
+.fit-detail-date-badge .date-year { margin-left: 2px; }
+.fit-detail-divider { border-bottom: 1px solid #e2e8f0; margin: 18px 0 24px; }
