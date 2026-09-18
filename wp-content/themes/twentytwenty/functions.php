@@ -202,6 +202,15 @@ function twentytwenty_register_styles() {
 	wp_enqueue_style( 'twentytwenty-style', get_stylesheet_uri(), array(), $theme_version );
 	wp_style_add_data( 'twentytwenty-style', 'rtl', 'replace' );
 
+	// Font Awesome icons and the custom reference-matched header styles.
+	wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css', array(), '6.7.2' );
+	wp_enqueue_style(
+		'twentytwenty-module-one',
+		get_theme_file_uri( '/module1.css' ),
+		array( 'twentytwenty-style', 'font-awesome' ),
+		filemtime( get_theme_file_path( '/module1.css' ) )
+	);
+
 	// Enqueue the CSS file for the variable font, Inter.
 	wp_enqueue_style( 'twentytwenty-fonts', get_theme_file_uri( '/assets/css/font-inter.css' ), array(), $theme_version, 'all' );
 

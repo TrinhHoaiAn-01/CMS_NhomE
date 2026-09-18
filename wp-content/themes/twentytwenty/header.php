@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Header file for the Twenty Twenty WordPress default theme.
  *
@@ -10,251 +9,102 @@
  * @since Twenty Twenty 1.0
  */
 
+$enable_header_search = get_theme_mod( 'enable_header_search', true );
+$default_category_id  = (int) get_option( 'default_category' );
+$header_categories    = get_categories(
+	array(
+		'taxonomy'   => 'category',
+		'hide_empty' => false,
+		'orderby'    => 'term_id',
+		'order'      => 'ASC',
+		'exclude'    => $default_category_id,
+		'number'     => 3,
+	)
+);
 ?>
 <!DOCTYPE html>
 
 <html class="no-js" <?php language_attributes(); ?>>
 
 <head>
-
-	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
-
 </head>
 
 <body <?php body_class(); ?>>
 
-	<?php
-	wp_body_open();
-	?>
+	<?php wp_body_open(); ?>
 
 	<header id="site-header" class="header-footer-group">
-
 		<div class="header-inner section-inner">
-
 			<div class="header-titles-wrapper">
-
-				<?php
-
-				// Check whether the header search is activated in the customizer.
-				$enable_header_search = get_theme_mod('enable_header_search', true);
-
-				if (true === $enable_header_search) {
-
-				?>
-
-					<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
-						<span class="toggle-inner">
-							<span class="toggle-icon">
-								<?php twentytwenty_the_theme_svg('search'); ?>
-							</span>
-							<span class="toggle-text"><?php _ex('Search', 'toggle text', 'twentytwenty'); ?></span>
-						</span>
-					</button><!-- .search-toggle -->
-
-				<?php } ?>
-
 				<div class="header-titles">
+					<?php twentytwenty_site_logo(); ?>
+				</div>
+			</div>
 
-					<?php
-					// Site title or logo.
-					twentytwenty_site_logo();
+			<a class="cms-home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+				<?php esc_html_e( 'Home', 'twentytwenty' ); ?>
+			</a>
 
-					// Site description.
-					twentytwenty_site_description();
-					?>
+			<?php get_search_form( array( 'aria_label' => __( 'Search this website', 'twentytwenty' ) ) ); ?>
 
-				</div><!-- .header-titles -->
+			<?php if ( ! empty( $header_categories ) ) : ?>
+				<nav class="cms-category-nav" aria-label="<?php esc_attr_e( 'Categories', 'twentytwenty' ); ?>">
+					<?php foreach ( $header_categories as $header_category ) : ?>
+						<a href="<?php echo esc_url( get_category_link( $header_category->term_id ) ); ?>">
+							<?php echo esc_html( $header_category->name ); ?>
+						</a>
+					<?php endforeach; ?>
+				</nav>
+			<?php endif; ?>
 
-				<button class="toggle nav-toggle mobile-nav-toggle" data-toggle-target=".menu-modal" data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle">
-					<span class="toggle-inner">
-						<span class="toggle-icon">
-							<?php twentytwenty_the_theme_svg('ellipsis'); ?>
+			<div class="cms-header-actions hide-no-js">
+				<button class="toggle nav-toggle desktop-nav-toggle cms-action-button" data-toggle-target=".menu-modal" data-toggle-body-class="showing-menu-modal" data-set-focus=".close-nav-toggle" aria-expanded="false" type="button">
+					<span class="cms-action-icon" aria-hidden="true"><i class="fa-solid fa-ellipsis"></i></span>
+					<span class="cms-action-label"><?php esc_html_e( 'Menu', 'twentytwenty' ); ?></span>
+				</button>
+
+				<?php if ( true === $enable_header_search ) : ?>
+					<button class="toggle search-toggle desktop-search-toggle cms-action-button" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false" type="button">
+						<span class="cms-action-icon" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span>
+						<span class="cms-action-label"><?php echo esc_html_x( 'Search', 'toggle text', 'twentytwenty' ); ?></span>
+					</button>
+				<?php endif; ?>
+
+				<div class="cms-account">
+					<button class="cms-account-button" type="button" aria-haspopup="true">
+						<span class="cms-action-icon cms-account-icon" aria-hidden="true"><i class="fa-regular fa-circle-user"></i></span>
+						<span class="cms-account-label">
+							<?php esc_html_e( 'Account', 'twentytwenty' ); ?>
+							<i class="fa-solid fa-caret-down" aria-hidden="true"></i>
 						</span>
-						<span class="toggle-text"><?php _e('Menu', 'twentytwenty'); ?></span>
-					</span>
-				</button><!-- .nav-toggle -->
+					</button>
 
-			</div><!-- .header-titles-wrapper -->
-
-			<div class="header-navigation-wrapper">
-
-				<?php
-				if (has_nav_menu('primary') || ! has_nav_menu('expanded')) {
-				?>
-
-					<nav class="primary-menu-wrapper" aria-label="<?php echo esc_attr_x('Horizontal', 'menu', 'twentytwenty'); ?>">
-
-						<ul class="primary-menu reset-list-style">
-
-							<?php
-							if (has_nav_menu('primary')) {
-
-								wp_nav_menu(
-									array(
-										'container'  => '',
-										'items_wrap' => '%3$s',
-										'theme_location' => 'primary',
-									)
-								);
-							} elseif (! has_nav_menu('expanded')) {
-
-								wp_list_pages(
-									array(
-										'match_menu_classes' => true,
-										'show_sub_menu_icons' => true,
-										'title_li' => false,
-										'walker'   => new TwentyTwenty_Walker_Page(),
-									)
-								);
-							}
-							?>
-
-						</ul>
-
-					</nav><!-- .primary-menu-wrapper -->
-
-				<?php
-				}
-				?>
-
-
-				<!-- =====================================
-					     MODULE 1: SEARCH + ACCOUNT
-					     PUT THE NEW CODE HERE
-					     ===================================== -->
-
-				<div class="cms-header-tools">
-
-					<?php get_search_form(); ?>
-
-					<div class="cms-account">
-
-						<button
-							class="cms-account-button"
-							type="button"
-							aria-haspopup="true"
-							aria-expanded="false">
-							<span class="cms-account-icon" aria-hidden="true">
-								<svg viewBox="0 0 24 24" width="32" height="32">
-									<circle cx="12" cy="8" r="4"></circle>
-									<path d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"></path>
-									<circle cx="12" cy="12" r="11"></circle>
-								</svg>
-							</span>
-
-							<span class="cms-account-label">
-								Account <span class="cms-account-arrow">▾</span>
-							</span>
-						</button>
-
-						<div class="cms-account-menu">
-
-							<?php if (is_user_logged_in()) : ?>
-
-								<?php $current_user = wp_get_current_user(); ?>
-
-								<span class="cms-account-name">
-									<?php echo esc_html($current_user->display_name); ?>
-								</span>
-
-								<a href="<?php echo esc_url(admin_url('profile.php')); ?>">
-									Profile
-								</a>
-
-								<a href="<?php echo esc_url(wp_logout_url(home_url('/'))); ?>">
-									Logout
-								</a>
-
-							<?php else : ?>
-
-								<a href="<?php echo esc_url(wp_login_url(home_url('/'))); ?>">
-									Login
-								</a>
-
-								<?php if (get_option('users_can_register')) : ?>
-
-									<a href="<?php echo esc_url(wp_registration_url()); ?>">
-										Register
-									</a>
-
-								<?php endif; ?>
-
+					<div class="cms-account-menu">
+						<?php if ( is_user_logged_in() ) : ?>
+							<?php $current_user = wp_get_current_user(); ?>
+							<span class="cms-account-name"><?php echo esc_html( $current_user->display_name ); ?></span>
+							<a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>"><?php esc_html_e( 'Profile', 'twentytwenty' ); ?></a>
+							<a href="<?php echo esc_url( wp_logout_url( home_url( '/' ) ) ); ?>"><?php esc_html_e( 'Logout', 'twentytwenty' ); ?></a>
+						<?php else : ?>
+							<a href="<?php echo esc_url( wp_login_url( home_url( '/' ) ) ); ?>"><?php esc_html_e( 'Login', 'twentytwenty' ); ?></a>
+							<?php if ( get_option( 'users_can_register' ) ) : ?>
+								<a href="<?php echo esc_url( wp_registration_url() ); ?>"><?php esc_html_e( 'Register', 'twentytwenty' ); ?></a>
 							<?php endif; ?>
-
-						</div><!-- .cms-account-menu -->
-
-					</div><!-- .cms-account -->
-
-				</div><!-- .cms-header-tools -->
-
-
-				<?php
-				if (true === $enable_header_search || has_nav_menu('expanded')) {
-				?>
-
-					<div class="header-toggles hide-no-js">
-
-						<?php
-						if (has_nav_menu('expanded')) {
-						?>
-
-							<div class="toggle-wrapper nav-toggle-wrapper has-expanded-menu">
-
-								<button class="toggle nav-toggle desktop-nav-toggle" data-toggle-target=".menu-modal" data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle">
-									<span class="toggle-inner">
-										<span class="toggle-text"><?php _e('Menu', 'twentytwenty'); ?></span>
-										<span class="toggle-icon">
-											<?php twentytwenty_the_theme_svg('ellipsis'); ?>
-										</span>
-									</span>
-								</button><!-- .nav-toggle -->
-
-							</div><!-- .nav-toggle-wrapper -->
-
-						<?php
-						}
-
-						if (true === $enable_header_search) {
-						?>
-
-							<div class="toggle-wrapper search-toggle-wrapper">
-
-								<button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
-									<span class="toggle-inner">
-										<?php twentytwenty_the_theme_svg('search'); ?>
-										<span class="toggle-text"><?php _ex('Search', 'toggle text', 'twentytwenty'); ?></span>
-									</span>
-								</button><!-- .search-toggle -->
-
-							</div>
-
-						<?php
-						}
-						?>
-
-					</div><!-- .header-toggles -->
-				<?php
-				}
-				?>
-
-			</div><!-- .header-navigation-wrapper -->
-
-		</div><!-- .header-inner -->
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<?php
-		// Output the search modal (if it is activated in the customizer).
-		if (true === $enable_header_search) {
-			get_template_part('template-parts/modal-search');
+		if ( true === $enable_header_search ) {
+			get_template_part( 'template-parts/modal-search' );
 		}
 		?>
+	</header>
 
-	</header><!-- #site-header -->
-
-	<?php
-	// Output the menu modal.
-	get_template_part('template-parts/modal-menu');
+	<?php get_template_part( 'template-parts/modal-menu' );

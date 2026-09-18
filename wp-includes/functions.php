@@ -9396,15 +9396,3 @@ function wp_verify_fast_hash(
 
 	return hash_equals( $hash, wp_fast_hash( $message ) );
 }
-
-
-function cms_module_styles() {
-    wp_enqueue_style(
-        'cms-module-1',
-        get_template_directory_uri() . '/module1.css',
-        array(),
-        '1.0'
-    );
-}
-
-add_action('wp_enqueue_scripts', 'cms_module_styles', 20);

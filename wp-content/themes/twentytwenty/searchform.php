@@ -22,27 +22,30 @@ $twentytwenty_aria_label = ! empty( $args['aria_label'] ) ? 'aria-label="' . esc
 if ( empty( $twentytwenty_aria_label ) && ! empty( $args['label'] ) ) {
 	$twentytwenty_aria_label = 'aria-label="' . esc_attr( $args['label'] ) . '"';
 }
+$twentytwenty_input_id = $twentytwenty_unique_id . '-field';
 ?>
 <form
 	role="search"
 	method="get"
 	class="cms-header-search"
 	action="<?php echo esc_url( home_url( '/' ) ); ?>"
+	<?php echo $twentytwenty_aria_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 >
-	<label class="screen-reader-text" for="cms-search-input">
+	<label class="screen-reader-text" for="<?php echo esc_attr( $twentytwenty_input_id ); ?>">
 		<?php _e( 'Search for:', 'twentytwenty' ); ?>
 	</label>
 
 	<input
-		id="cms-search-input"
+		id="<?php echo esc_attr( $twentytwenty_input_id ); ?>"
 		class="cms-search-input"
 		type="search"
 		name="s"
 		value="<?php echo esc_attr( get_search_query() ); ?>"
-		placeholder="Search"
+		placeholder="<?php echo esc_attr_x( 'Search', 'placeholder', 'twentytwenty' ); ?>"
+		autocomplete="off"
 	>
 
 	<button class="cms-search-submit" type="submit">
-		Submit
+		<?php esc_html_e( 'Submit', 'twentytwenty' ); ?>
 	</button>
 </form>
