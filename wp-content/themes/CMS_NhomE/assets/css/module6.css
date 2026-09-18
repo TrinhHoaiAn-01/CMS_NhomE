@@ -23,3 +23,12 @@
 .fit-detail-content p:first-of-type { font-style: italic; color: #64748b; }
 .fit-detail-thumb { margin-bottom: 22px; text-align: center; }
 .fit-detail-thumb img { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, .08); }
+
+@media (max-width: 768px) {
+    .fit-detail-card { padding: 20px; }
+    .fit-detail-header { gap: 12px; }
+    .fit-detail-title { font-size: 22px; overflow-wrap: anywhere; }
+    .fit-detail-date-badge { flex-basis: 62px; }
+    .fit-detail-content img,
+    .fit-detail-content iframe { max-width: 100%; }
+}
