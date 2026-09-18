@@ -1,8 +1,6 @@
 <?php
 /**
- * The template for displaying the footer
- *
- * Contains the opening of the #site-footer div and all content after.
+ * The template for displaying the site footer.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
@@ -11,58 +9,84 @@
  * @since Twenty Twenty 1.0
  */
 
+$footer_columns = array(
+	array(
+		__( 'Home', 'twentytwenty' )        => home_url( '/' ),
+		__( 'About', 'twentytwenty' )       => home_url( '/about/' ),
+		__( 'FAQ', 'twentytwenty' )         => home_url( '/faq/' ),
+		__( 'Get Started', 'twentytwenty' ) => home_url( '/get-started/' ),
+		__( 'Videos', 'twentytwenty' )      => home_url( '/videos/' ),
+	),
+	array(
+		__( 'Home', 'twentytwenty' )        => home_url( '/' ),
+		__( 'About', 'twentytwenty' )       => home_url( '/about/' ),
+		__( 'FAQ', 'twentytwenty' )         => home_url( '/faq/' ),
+		__( 'Get Started', 'twentytwenty' ) => home_url( '/get-started/' ),
+		__( 'Videos', 'twentytwenty' )      => home_url( '/videos/' ),
+	),
+	array(
+		__( 'Home', 'twentytwenty' )        => home_url( '/' ),
+		__( 'About', 'twentytwenty' )       => home_url( '/about/' ),
+		__( 'FAQ', 'twentytwenty' )         => home_url( '/faq/' ),
+		__( 'Get Started', 'twentytwenty' ) => home_url( '/get-started/' ),
+		__( 'Imprint', 'twentytwenty' )     => home_url( '/imprint/' ),
+	),
+);
+
+$footer_socials = array(
+	array(
+		'label' => 'Facebook',
+		'icon'  => 'fa-brands fa-facebook-f',
+	),
+	array(
+		'label' => 'Twitter',
+		'icon'  => 'fa-brands fa-twitter',
+	),
+	array(
+		'label' => 'Instagram',
+		'icon'  => 'fa-brands fa-instagram',
+	),
+	array(
+		'label' => 'Google Plus',
+		'icon'  => 'fa-brands fa-google-plus-g',
+	),
+	array(
+		'label' => 'Email',
+		'icon'  => 'fa-solid fa-envelope',
+	),
+);
 ?>
-			<footer id="site-footer" class="header-footer-group">
+			<footer id="site-footer" class="cms-site-footer header-footer-group">
+				<div class="cms-footer-inner">
+					<div class="cms-footer-columns">
+						<?php foreach ( $footer_columns as $footer_column ) : ?>
+							<nav class="cms-footer-column" aria-label="<?php esc_attr_e( 'Quick links', 'twentytwenty' ); ?>">
+								<h2 class="cms-footer-column-title"><?php esc_html_e( 'Quick links', 'twentytwenty' ); ?></h2>
+								<ul class="cms-footer-links">
+									<?php foreach ( $footer_column as $link_label => $link_url ) : ?>
+										<li><a href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_label ); ?></a></li>
+									<?php endforeach; ?>
+								</ul>
+							</nav>
+						<?php endforeach; ?>
+					</div>
 
-				<div class="section-inner">
-
-					<div class="footer-credits">
-
-						<p class="footer-copyright">&copy;
-							<?php
-							/* translators: Copyright date format, see https://www.php.net/manual/datetime.format.php */
-							$date_format = _x( 'Y', 'copyright date format', 'twentytwenty' );
-							if ( function_exists( 'wp_date' ) ) {
-								echo wp_date( $date_format );
-							} else {
-								echo date_i18n( $date_format );
-							}
-							?>
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-						</p><!-- .footer-copyright -->
-
-						<?php
-						if ( function_exists( 'the_privacy_policy_link' ) ) {
-							the_privacy_policy_link( '<p class="privacy-policy">', '</p>' );
-						}
-						?>
-
-						<p class="powered-by-wordpress">
-							<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentytwenty' ) ); ?>">
-								<?php _e( 'Powered by WordPress', 'twentytwenty' ); ?>
+					<nav class="cms-footer-socials" aria-label="<?php esc_attr_e( 'Social media', 'twentytwenty' ); ?>">
+						<?php foreach ( $footer_socials as $footer_social ) : ?>
+							<a href="#" aria-label="<?php echo esc_attr( $footer_social['label'] ); ?>">
+								<i class="<?php echo esc_attr( $footer_social['icon'] ); ?>" aria-hidden="true"></i>
 							</a>
-						</p><!-- .powered-by-wordpress -->
+						<?php endforeach; ?>
+					</nav>
 
-					</div><!-- .footer-credits -->
-
-					<a class="to-the-top" href="#site-header">
-						<span class="to-the-top-long">
-							<?php
-							/* translators: %s: HTML character for up arrow. */
-							printf( __( 'To the top %s', 'twentytwenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
-							?>
-						</span><!-- .to-the-top-long -->
-						<span class="to-the-top-short">
-							<?php
-							/* translators: %s: HTML character for up arrow. */
-							printf( __( 'Up %s', 'twentytwenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
-							?>
-						</span><!-- .to-the-top-short -->
-					</a><!-- .to-the-top -->
-
-				</div><!-- .section-inner -->
-
-			</footer><!-- #site-footer -->
+					<div class="cms-footer-legal">
+						<p>
+							<a href="#">National Transaction Corporation</a> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]
+						</p>
+						<p>&copy; <?php esc_html_e( 'All right Reserved. Sunlimetech', 'twentytwenty' ); ?></p>
+					</div>
+				</div>
+			</footer>
 
 		<?php wp_footer(); ?>
 
