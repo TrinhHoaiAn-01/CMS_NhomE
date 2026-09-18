@@ -1,0 +1,25 @@
+.module-2-content-container {
+    max-width: 1140px;
+    margin: 30px auto;
+    padding: 0 15px;
+    font-family: Arial, sans-serif;
+}
+
+.fit-posts-list { display: flex; flex-direction: column; gap: 18px; }
+
+.fit-post-card {
+    display: flex;
+    gap: 20px;
+    min-width: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .03);
+}
+
+.fit-post-card:hover { border-color: #cbd5e1; box-shadow: 0 4px 12px rgba(0, 0, 0, .06); }
+.fit-post-content { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.fit-post-title { font-size: 1.1rem; line-height: 1.45; margin: 0 0 8px; text-transform: uppercase; }
+.fit-post-title a { color: #005baa; text-decoration: none; }
+.fit-post-title a:hover { color: #003e75; }
