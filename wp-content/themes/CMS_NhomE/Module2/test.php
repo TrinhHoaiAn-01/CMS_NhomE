@@ -19,6 +19,11 @@
                     </div>
                 </article>
             <?php endwhile; ?>
+            <nav class="fit-pagination" aria-label="Phân trang bài viết">
+                <?php the_posts_pagination( array( 'prev_text' => '« Trước', 'next_text' => 'Sau »' ) ); ?>
+            </nav>
+        <?php else : ?>
+            <div class="fit-posts-empty">Hiện tại chưa có bài viết nào được đăng tải.</div>
         <?php endif; ?>
     </div>
 </div>
