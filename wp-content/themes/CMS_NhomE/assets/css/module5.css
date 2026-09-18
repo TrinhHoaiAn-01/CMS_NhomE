@@ -1,0 +1,15 @@
+.fit-search-container { max-width: 920px; margin: 30px auto 50px; padding: 0 15px; font-family: Arial, sans-serif; }
+.fit-search-item {
+    display: flex;
+    align-items: stretch;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
+}
+.fit-search-item:hover { border-color: #cbd5e1; box-shadow: 0 4px 12px rgba(0, 0, 0, .08); }
+.fit-search-content { flex: 1; min-width: 0; padding: 30px 28px; overflow-wrap: anywhere; }
+.fit-search-title { margin: 0 0 16px; font-size: 18px; font-weight: 700; line-height: 1.38; text-transform: uppercase; }
+.fit-search-title a { color: #0174c6; text-decoration: none; }
+.fit-search-title a:hover { color: #0056b3; }
