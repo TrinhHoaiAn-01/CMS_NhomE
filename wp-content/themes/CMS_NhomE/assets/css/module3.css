@@ -1,0 +1,16 @@
+.cms-footer {
+    background: #006341;
+    color: #fff;
+    padding: 48px 0 20px;
+    margin-top: 48px;
+}
+
+.cms-footer h2 {
+    color: #fff;
+    font-size: 1.15rem;
+    margin-bottom: 18px;
+}
+
+.cms-footer a { color: #fff; }
+.cms-footer-social { display: flex; gap: 18px; justify-content: center; margin: 24px 0; }
+.cms-footer-copy { text-align: center; margin: 0; }
