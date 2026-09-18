@@ -79,7 +79,7 @@
 
 				</div><!-- .header-titles-wrapper -->
 
-				<div class="header-navigation-wrapper">
+								<div class="header-navigation-wrapper">
 
 					<?php
 					if ( has_nav_menu( 'primary' ) || ! has_nav_menu( 'expanded' ) ) {
@@ -120,7 +120,71 @@
 
 						<?php
 					}
+					?>
 
+
+					<!-- =====================================
+					     MODULE 1: SEARCH + ACCOUNT
+					     PUT THE NEW CODE HERE
+					     ===================================== -->
+
+					<div class="cms-header-tools">
+
+						<?php get_search_form(); ?>
+
+						<div class="cms-account">
+
+							<button
+								class="cms-account-button"
+								type="button"
+								aria-haspopup="true"
+							>
+								Account
+								<span aria-hidden="true">▼</span>
+							</button>
+
+							<div class="cms-account-menu">
+
+								<?php if ( is_user_logged_in() ) : ?>
+
+									<?php $current_user = wp_get_current_user(); ?>
+
+									<span class="cms-account-name">
+										<?php echo esc_html( $current_user->display_name ); ?>
+									</span>
+
+									<a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>">
+										Profile
+									</a>
+
+									<a href="<?php echo esc_url( wp_logout_url( home_url( '/' ) ) ); ?>">
+										Logout
+									</a>
+
+								<?php else : ?>
+
+									<a href="<?php echo esc_url( wp_login_url( home_url( '/' ) ) ); ?>">
+										Login
+									</a>
+
+									<?php if ( get_option( 'users_can_register' ) ) : ?>
+
+										<a href="<?php echo esc_url( wp_registration_url() ); ?>">
+											Register
+										</a>
+
+									<?php endif; ?>
+
+								<?php endif; ?>
+
+							</div><!-- .cms-account-menu -->
+
+						</div><!-- .cms-account -->
+
+					</div><!-- .cms-header-tools -->
+
+
+					<?php
 					if ( true === $enable_header_search || has_nav_menu( 'expanded' ) ) {
 						?>
 
