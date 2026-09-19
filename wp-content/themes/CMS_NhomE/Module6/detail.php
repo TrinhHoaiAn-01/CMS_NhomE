@@ -22,6 +22,9 @@
                 <?php wp_link_pages(); ?>
             </div>
             <?php get_template_part( 'Module7/prev-next' ); ?>
+            <?php if ( comments_open() || get_comments_number() ) : ?>
+                <?php comments_template( '/Module8/comments.php' ); ?>
+            <?php endif; ?>
         </article>
     <?php endwhile; ?>
 </div>
