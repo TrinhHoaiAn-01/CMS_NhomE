@@ -1,0 +1,14 @@
+.fit-comments-area { margin-top: 35px; padding-top: 25px; border-top: 1px solid #e2e8f0; font-family: Arial, sans-serif; }
+.fit-comments-title { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; color: #2d3748; font-size: 18px; font-weight: 700; }
+.fit-comments-title .badge-count { padding: 2px 8px; border-radius: 12px; background: #007bff; color: #fff; font-size: 13px; }
+.fit-comment-list { margin-bottom: 25px; }
+.fit-comment-item { margin-bottom: 15px; border: 1px solid #dee2e6; border-radius: 4px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .03); }
+.fit-comment-inner { padding: 16px; }
+.fit-comment-header-row { display: flex; align-items: center; margin-bottom: 10px; }
+.fit-comment-avatar { flex-shrink: 0; margin-right: 12px; }
+.fit-comment-avatar img { display: block; width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+.fit-comment-meta { flex: 1; min-width: 0; }
+.fit-comment-author { margin: 0; color: #2d3748; font-size: 15px; font-weight: 700; }
+.fit-comment-time { margin: 2px 0 0; color: #6c757d; font-size: 12px; }
+.fit-comment-content { padding-left: 56px; color: #4a5568; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
+.fit-comment-content p:last-child { margin-bottom: 0; }
