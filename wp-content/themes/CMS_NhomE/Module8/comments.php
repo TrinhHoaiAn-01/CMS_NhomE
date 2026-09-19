@@ -24,4 +24,18 @@ if ( post_password_required() ) {
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
+    <?php if ( comments_open() ) : ?>
+        <?php comment_form( array(
+            'class_form'         => 'fit-comment-form',
+            'title_reply'        => 'Viết bình luận',
+            'title_reply_before' => '<h3 id="reply-title" class="fit-comment-form-title">',
+            'title_reply_after'  => '</h3>',
+            'comment_field'      => '<p class="comment-form-comment"><label for="comment">Nội dung bình luận</label><textarea id="comment" name="comment" rows="4" required></textarea></p>',
+            'class_submit'       => 'fit-comment-btn-share',
+            'label_submit'       => 'Đăng bình luận',
+            'submit_field'       => '<p class="fit-comment-actions">%1$s %2$s</p>',
+        ) ); ?>
+    <?php elseif ( have_comments() ) : ?>
+        <p class="fit-comments-closed">Bình luận đã đóng cho bài viết này.</p>
+    <?php endif; ?>
 </section>
