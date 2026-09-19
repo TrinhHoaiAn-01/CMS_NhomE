@@ -21,6 +21,7 @@
                 <?php the_content(); ?>
                 <?php wp_link_pages(); ?>
             </div>
+            <?php get_template_part( 'Module7/prev-next' ); ?>
         </article>
     <?php endwhile; ?>
 </div>
