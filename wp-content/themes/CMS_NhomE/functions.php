@@ -839,6 +839,7 @@ function cms_nhome_module_assets() {
     wp_enqueue_style( 'cms-nhome-module4', get_theme_file_uri( '/assets/css/module4.css' ), array( 'cms-nhome-bootstrap' ), '1.0' );
     wp_enqueue_style( 'cms-nhome-module5', get_theme_file_uri( '/assets/css/module5.css' ), array( 'cms-nhome-bootstrap' ), '1.0' );
     wp_enqueue_style( 'cms-nhome-module6', get_theme_file_uri( '/assets/css/module6.css' ), array( 'cms-nhome-bootstrap' ), '1.0' );
+    wp_enqueue_style( 'cms-nhome-module7', get_theme_file_uri( '/assets/css/module7.css' ), array( 'cms-nhome-bootstrap' ), '1.0' );
     wp_enqueue_script( 'cms-nhome-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), '4.6.2', true );
 }
 add_action( 'wp_enqueue_scripts', 'cms_nhome_module_assets' );
