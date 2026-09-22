@@ -1,4 +1,4 @@
-.fit-comments-area { margin-top: 35px; padding-top: 25px; border-top: 1px solid #e2e8f0; font-family: Arial, sans-serif; }
+.fit-comments-area { margin-top: 35px; font-family: Arial, sans-serif; }
 .fit-comments-title { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; color: #2d3748; font-size: 18px; font-weight: 700; }
 .fit-comments-title .badge-count { padding: 2px 8px; border-radius: 12px; background: #007bff; color: #fff; font-size: 13px; }
 .fit-comment-list { margin-bottom: 25px; }
@@ -13,25 +13,143 @@
 .fit-comment-content { padding-left: 56px; color: #4a5568; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
 .fit-comment-content p:last-child { margin-bottom: 0; }
 
-.fit-comments-area .comment-respond { margin-bottom: 30px; border: 1px solid #dee2e6; border-radius: 4px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .04); overflow: hidden; }
-.fit-comment-form-title { margin: 0; padding: 12px 20px; border-bottom: 1px solid #dee2e6; background: #f8f9fa; color: #2d3748; font-size: 16px; }
-.fit-comment-form { padding: 20px; }
-.fit-comment-form p { margin-bottom: 15px; }
-.fit-comment-form label { display: block; margin-bottom: 6px; font-size: 14px; }
-.fit-comment-form textarea,
-.fit-comment-form input[type="text"],
-.fit-comment-form input[type="email"],
-.fit-comment-form input[type="url"] { width: 100%; max-width: 100%; border: 1px solid #ced4da; border-radius: 4px; padding: 10px 14px; font: inherit; box-sizing: border-box; }
-.fit-comment-form textarea:focus,
-.fit-comment-form input:focus { border-color: #80bdff; outline: 0; box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25); }
-.fit-comment-form .fit-comment-actions { display: flex; justify-content: flex-end; margin: 0; }
-.fit-comment-form .fit-comment-btn-share { border: 1px solid #007bff; border-radius: 4px; background: #007bff; color: #fff; padding: 8px 24px; font-size: 14px; cursor: pointer; }
-.fit-comment-form .fit-comment-btn-share:hover { background: #0069d9; }
+.fit-comments-area .comment-respond {
+    margin-bottom: 30px;
+    border: 1px solid #d9e0e7;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.fit-comments-area .fit-comment-tabbar {
+    display: flex;
+    align-items: flex-end;
+    min-height: 60px;
+    padding: 14px 16px 0;
+    border-bottom: 1px solid #d9e0e7;
+    background: #fbfbfc;
+}
+
+.fit-comments-area .fit-comment-form-title {
+    display: inline-flex;
+    align-items: center;
+    min-height: 46px;
+    margin: 0 0 -1px;
+    padding: 8px 18px;
+    border: 1px solid #d9e0e7;
+    border-bottom-color: #fff;
+    border-radius: 4px 4px 0 0;
+    background: #fff;
+    color: #5b6570;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: left;
+}
+
+.fit-comments-area .fit-comment-form-title small {
+    margin: 0 0 0 12px;
+    font-size: 12px;
+}
+
+.fit-comments-area .fit-comment-form {
+    padding: 20px;
+}
+
+.fit-comments-area .fit-comment-form p,
+.fit-comments-area .comment-respond p:not(.comment-notes) {
+    max-width: none;
+    margin: 0 0 15px;
+    line-height: 1.5;
+}
+
+.fit-comments-area .fit-comment-form label {
+    display: block;
+    margin-bottom: 6px;
+    color: #5b6570;
+    font-size: 14px;
+}
+
+.fit-comments-area .fit-comment-form textarea,
+.fit-comments-area .fit-comment-form input[type="text"],
+.fit-comments-area .fit-comment-form input[type="email"],
+.fit-comments-area .fit-comment-form input[type="url"] {
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #ced7e0;
+    border-radius: 4px;
+    padding: 10px 12px;
+    background: #fff;
+    color: #4b5563;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.4;
+    letter-spacing: normal;
+    box-sizing: border-box;
+}
+
+.fit-comments-area .fit-comment-form textarea {
+    min-height: 110px;
+    height: 110px;
+    resize: vertical;
+    font-size: 18px;
+}
+
+.fit-comments-area .fit-comment-form textarea::placeholder {
+    color: #65727f;
+    opacity: 1;
+}
+
+.fit-comments-area .fit-comment-form textarea:focus,
+.fit-comments-area .fit-comment-form input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, .14);
+}
+
+.fit-comments-area .fit-comment-form .comment-form-cookies-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.fit-comments-area .fit-comment-form .comment-form-cookies-consent label {
+    margin: 0;
+}
+
+.fit-comments-area .fit-comment-form .fit-comment-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+.fit-comments-area .fit-comment-form .fit-comment-btn-share {
+    min-height: 44px;
+    padding: 8px 18px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background: #007bff;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: normal;
+    text-transform: none;
+    cursor: pointer;
+}
+
+.fit-comments-area .fit-comment-form .fit-comment-btn-share:hover,
+.fit-comments-area .fit-comment-form .fit-comment-btn-share:focus {
+    background: #0069d9;
+    text-decoration: none;
+}
 .fit-comments-closed { color: #6c757d; text-align: center; }
 
 @media (max-width: 576px) {
     .fit-comment-content { padding-left: 0; margin-top: 10px; }
-    .fit-comment-form { padding: 15px; }
-    .fit-comment-form .fit-comment-actions { justify-content: stretch; }
-    .fit-comment-form .fit-comment-btn-share { width: 100%; }
+    .fit-comments-area .fit-comment-tabbar { padding-left: 12px; padding-right: 12px; }
+    .fit-comments-area .fit-comment-form { padding: 16px; }
+    .fit-comments-area .fit-comment-form textarea { font-size: 16px; }
+    .fit-comments-area .fit-comment-form .fit-comment-actions { justify-content: stretch; }
+    .fit-comments-area .fit-comment-form .fit-comment-btn-share { width: 100%; }
 }

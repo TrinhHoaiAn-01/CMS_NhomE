@@ -27,12 +27,15 @@ if ( post_password_required() ) {
     <?php if ( comments_open() ) : ?>
         <?php comment_form( array(
             'class_form'         => 'fit-comment-form',
-            'title_reply'        => 'Viết bình luận',
-            'title_reply_before' => '<h3 id="reply-title" class="fit-comment-form-title">',
-            'title_reply_after'  => '</h3>',
-            'comment_field'      => '<p class="comment-form-comment"><label for="comment">Nội dung bình luận</label><textarea id="comment" name="comment" rows="4" required></textarea></p>',
+            'title_reply'        => 'Make a Post',
+            'title_reply_before' => '<div class="fit-comment-tabbar"><h3 id="reply-title" class="fit-comment-form-title">',
+            'title_reply_after'  => '</h3></div>',
+            'comment_notes_before' => '',
+            'comment_notes_after'  => '',
+            'logged_in_as'       => '',
+            'comment_field'      => '<p class="comment-form-comment"><label class="screen-reader-text" for="comment">Write a comment</label><textarea id="comment" name="comment" rows="4" placeholder="What are you thinking..." required></textarea></p>',
             'class_submit'       => 'fit-comment-btn-share',
-            'label_submit'       => 'Đăng bình luận',
+            'label_submit'       => 'share',
             'submit_field'       => '<p class="fit-comment-actions">%1$s %2$s</p>',
         ) ); ?>
     <?php elseif ( have_comments() ) : ?>

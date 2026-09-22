@@ -1,11 +1,4 @@
 <?php
-/**
- * ==========================================================
- * MODULE 1: HEADER & NAVIGATION (THANH ĐIỀU HƯỚNG)
- * Dự án: Group-A CMS (15 Modules) - Khoa CNTT FIT-TDC
- * Đường dẫn: wp-content/themes/NhomA_CMS_15module/Module1/test.php
- * ==========================================================
- */
 
 // Tự động nạp môi trường WordPress nếu người dùng mở trực tiếp test.php trên trình duyệt
 if (!function_exists('get_header')) {

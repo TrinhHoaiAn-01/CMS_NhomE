@@ -3,6 +3,6 @@
 get_header();
 ?>
 <main id="site-content">
-    <?php get_template_part( 'Module2/test' ); ?>
+    <?php get_template_part( 'Module2/content' ); ?>
 </main>
 <?php get_footer(); ?>

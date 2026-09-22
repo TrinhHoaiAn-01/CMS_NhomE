@@ -1,44 +1,170 @@
-.cms-footer {
+/* Module 3: footer. */
+#footer {
+    width: 100%;
+    margin-top: 50px;
+    padding-top: 55px;
+    padding-bottom: 25px;
+    overflow: hidden;
     background: #006341;
     color: #fff;
-    padding: 48px 0 20px;
-    margin-top: 48px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    box-sizing: border-box;
 }
 
-.cms-footer h2 {
+#footer * {
+    box-sizing: border-box;
+}
+
+#footer .container,
+#footer .row,
+#footer .col-12 {
+    min-width: 0;
+}
+
+#footer img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+#footer h5 {
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-bottom: 6px;
+    border-left: 3px solid #eee;
     color: #fff;
-    font-size: 1.15rem;
-    margin-bottom: 18px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
 }
 
-.cms-footer a { color: #fff; }
-.cms-footer-links { list-style: none; padding: 0; margin: 0 0 24px; }
-.cms-footer-links li { padding: 5px 0; overflow-wrap: anywhere; }
-.cms-footer-links a:hover { color: #e2e8f0; text-decoration: underline; }
-.cms-footer-social { display: flex; gap: 18px; justify-content: center; margin: 24px 0; }
-.cms-footer-copy { text-align: center; margin: 0; }
+#footer a {
+    color: #fff;
+    background-color: transparent;
+    text-decoration: none;
+    transition: all .25s ease;
+}
 
-.cms-footer .container,
-.cms-footer .row,
-.cms-footer .col-md-4 { min-width: 0; }
+#footer ul.quick-links {
+    width: 100%;
+    margin: 0 0 20px;
+    padding-left: 0;
+    list-style: none;
+}
 
-.cms-footer-links a {
-    display: block;
+#footer ul.quick-links li {
+    width: 100%;
+    margin: 0;
+    padding: 6px 0;
     overflow: hidden;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: all .25s ease-in-out;
+}
+
+#footer ul.quick-links li:hover {
+    padding-left: 6px;
+    font-weight: 600;
+}
+
+#footer ul.quick-links li a {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    color: #fff;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.cms-footer img { max-width: 100%; height: auto; }
+#footer ul.quick-links li a:hover {
+    color: #e2e8f0;
+}
+
+#footer ul.quick-links li a i {
+    margin-right: 6px;
+    font-size: 12px;
+    opacity: .85;
+}
+
+#footer ul.social {
+    margin: 15px 0 10px;
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+}
+
+#footer ul.social li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+#footer ul.social li a i {
+    display: inline-block;
+    color: #fff;
+    font-size: 22px;
+    transition: all .3s ease;
+}
+
+#footer ul.social li:hover a i {
+    transform: translateY(-3px) scale(1.15);
+    color: #e2e8f0;
+}
+
+#footer hr {
+    width: 100%;
+    margin: 20px auto;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+}
+
+#footer .footer-bottom-text {
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+#footer .footer-bottom-text p {
+    margin-bottom: 6px;
+    overflow-wrap: break-word;
+}
+
+#footer .footer-bottom-text a {
+    color: #fff;
+    text-decoration: underline;
+    overflow-wrap: break-word;
+}
+
+#footer .footer-bottom-text a:hover {
+    color: #cbd5e1;
+}
+
+#footer .footer-copyright {
+    margin-top: 5px;
+    font-size: 13px;
+    opacity: .95;
+}
 
 @media (max-width: 767.98px) {
-    .cms-footer { padding-top: 30px; text-align: center; }
-    .cms-footer h2 {
-        display: inline-block;
-        border-bottom: 2px solid #fff;
-        padding-bottom: 5px;
-        margin-top: 16px;
+    #footer {
+        text-align: center;
     }
-    .cms-footer-links { margin-bottom: 12px; }
-    .cms-footer-social { flex-wrap: wrap; }
+
+    #footer h5 {
+        display: inline-block;
+        margin-top: 15px;
+        padding-left: 0;
+        padding-bottom: 4px;
+        border-left: 0;
+        border-bottom: 2px solid #eee;
+    }
+
+    #footer ul.quick-links li:hover {
+        padding-left: 0;
+    }
 }
