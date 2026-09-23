@@ -8,6 +8,8 @@ $recent_posts = new WP_Query( array(
     'ignore_sticky_posts' => true,
     'no_found_rows'       => true,
 ) );
+$posts_page_id = (int) get_option( 'page_for_posts' );
+$all_posts_url = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/' );
 ?>
 <aside class="fit-recent-posts" aria-label="Bài viết mới">
     <div class="fit-recent-posts-list">
@@ -30,4 +32,5 @@ $recent_posts = new WP_Query( array(
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
     </div>
+    <a class="fit-recent-all" href="<?php echo esc_url( $all_posts_url ); ?>">XEM TẤT CẢ TIN TỨC</a>
 </aside>

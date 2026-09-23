@@ -843,6 +843,7 @@ function cms_nhome_module_assets() {
     wp_enqueue_style( 'cms-nhome-module8', get_theme_file_uri( '/assets/css/module8.css' ), array( 'cms-nhome-bootstrap' ), '1.1' );
     if ( is_singular( 'post' ) ) {
         wp_enqueue_style( 'cms-nhome-module9', get_theme_file_uri( '/assets/css/module9.css' ), array( 'cms-nhome-module6' ), '1.0' );
+        wp_enqueue_style( 'cms-nhome-module10', get_theme_file_uri( '/assets/css/module10.css' ), array( 'cms-nhome-module9' ), '1.0' );
     }
     wp_enqueue_script( 'cms-nhome-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), '4.6.2', true );
 }
