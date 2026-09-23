@@ -3,6 +3,9 @@
 get_header();
 ?>
 <main id="site-content">
-    <?php get_template_part( 'Module2/content' ); ?>
+    <div class="fit-listing-layout">
+        <?php get_template_part( 'Module11/archive' ); ?>
+        <?php get_template_part( 'Module2/content' ); ?>
+    </div>
 </main>
 <?php get_footer(); ?>
