@@ -2,7 +2,7 @@
 /** Module 12: latest approved comments beside the post listing. */
 $listing_comments = get_comments(
     array(
-        'number'      => 3,
+        'number'      => 6,
         'status'      => 'approve',
         'post_status' => 'publish',
         'orderby'     => 'comment_date_gmt',

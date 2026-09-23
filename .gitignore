@@ -3,7 +3,6 @@
 /db/
 
 # Generated and uploaded WordPress content
-/wp-content/uploads/
 /wp-content/cache/
 /wp-content/upgrade/
 /wp-content/backup*/

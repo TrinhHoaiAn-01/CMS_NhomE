@@ -25,7 +25,7 @@ if ( is_wp_error( $header_categories ) ) {
 <?php wp_body_open(); ?>
 <header id="site-header">
     <nav class="navbar navbar-expand-lg navbar-light custom-navbar" aria-label="Điều hướng chính">
-        <a class="navbar-brand font-weight-bold mr-4 text-dark" href="<?php echo esc_url( home_url( '/' ) ); ?>">Group</a>
+        <a class="navbar-brand font-weight-bold mr-4 text-dark" href="<?php echo esc_url( home_url( '/' ) ); ?>">Group E</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Mở menu">
             <span class="navbar-toggler-icon"></span>
