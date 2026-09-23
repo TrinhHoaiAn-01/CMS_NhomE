@@ -847,6 +847,7 @@ function cms_nhome_module_assets() {
     }
     if ( is_home() || is_archive() ) {
         wp_enqueue_style( 'cms-nhome-module11', get_theme_file_uri( '/assets/css/module11.css' ), array( 'cms-nhome-module2' ), '1.1' );
+        wp_enqueue_style( 'cms-nhome-module12', get_theme_file_uri( '/assets/css/module12.css' ), array( 'cms-nhome-module11' ), '1.0' );
     }
     wp_enqueue_script( 'cms-nhome-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), '4.6.2', true );
 }
