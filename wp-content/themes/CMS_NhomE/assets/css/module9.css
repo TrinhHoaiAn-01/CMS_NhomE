@@ -1,6 +1,6 @@
 .fit-single-layout {
     display: grid;
-    grid-template-columns: minmax(190px, 240px) minmax(0, 1fr) minmax(230px, 280px);
+    grid-template-columns: minmax(190px, 240px) minmax(0, 1fr);
     align-items: start;
     gap: 24px;
     width: min(100% - 40px, 1440px);
