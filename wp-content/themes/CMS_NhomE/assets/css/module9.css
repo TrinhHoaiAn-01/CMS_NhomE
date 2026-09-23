@@ -1,0 +1,93 @@
+.fit-single-layout {
+    display: grid;
+    grid-template-columns: minmax(190px, 240px) minmax(0, 1fr) minmax(230px, 280px);
+    align-items: start;
+    gap: 24px;
+    width: min(100% - 40px, 1440px);
+    margin: 30px auto 50px;
+}
+
+.fit-single-layout .fit-detail-wrapper {
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+.fit-categories {
+    min-width: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.fit-categories-title {
+    margin: 0 0 12px;
+    color: #222;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: normal;
+}
+
+.fit-categories-rule {
+    height: 17px;
+    background: repeating-linear-gradient(125deg, #e8ecef 0, #e8ecef 2px, #fff 2px, #fff 5px);
+}
+
+.fit-categories-list {
+    margin: 0;
+    padding: 28px 24px;
+    list-style: none;
+    background: #fff;
+}
+
+.fit-categories-list li {
+    position: relative;
+    margin: 0;
+    padding: 21px 0 21px 26px;
+    border-bottom: 1px solid #dce0e3;
+    font-size: 17px;
+    line-height: 1.45;
+}
+
+.fit-categories-list li:last-child { border-bottom: 0; }
+
+.fit-categories-list li::before {
+    content: '';
+    position: absolute;
+    top: 31px;
+    left: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #f9c921;
+}
+
+.fit-categories-list a {
+    color: #79a6cc;
+    text-decoration: none;
+}
+
+.fit-categories-list a:hover,
+.fit-categories-list a:focus { color: #356e9f; text-decoration: underline; }
+
+@media (max-width: 1100px) {
+    .fit-single-layout {
+        grid-template-columns: minmax(170px, 210px) minmax(0, 1fr);
+    }
+
+    .fit-single-layout .fit-recent-posts { grid-column: 1 / -1; }
+}
+
+@media (max-width: 700px) {
+    .fit-single-layout {
+        display: flex;
+        flex-direction: column;
+        width: min(100% - 30px, 600px);
+        gap: 24px;
+    }
+
+    .fit-single-layout > * { width: 100%; }
+    .fit-single-layout .fit-detail-wrapper { order: 0; }
+    .fit-single-layout .fit-categories { order: 1; }
+    .fit-single-layout .fit-recent-posts { order: 2; }
+}
