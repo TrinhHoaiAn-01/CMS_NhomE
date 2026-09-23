@@ -14,6 +14,14 @@ $recent_posts = new WP_Query( array(
         <?php if ( $recent_posts->have_posts() ) : ?>
             <?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
                 <article class="fit-recent-post">
+                    <time class="fit-recent-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>">
+                        <span class="fit-recent-date-fraction">
+                            <span><?php echo esc_html( get_the_date( 'd' ) ); ?></span>
+                            <span class="fit-recent-date-line" aria-hidden="true"></span>
+                            <span><?php echo esc_html( get_the_date( 'm' ) ); ?></span>
+                        </span>
+                        <span class="fit-recent-year"><?php echo esc_html( get_the_date( 'y' ) ); ?></span>
+                    </time>
                     <h2 class="fit-recent-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html( get_the_title() ); ?></a></h2>
                 </article>
             <?php endwhile; ?>
