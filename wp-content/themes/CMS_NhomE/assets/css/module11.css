@@ -1,6 +1,6 @@
 .fit-listing-layout {
     display: grid;
-    grid-template-columns: minmax(200px, 250px) minmax(0, 1fr) minmax(210px, 250px);
+    grid-template-columns: minmax(200px, 250px) minmax(0, 1fr);
     align-items: start;
     gap: 24px;
     width: min(100% - 40px, 1440px);
