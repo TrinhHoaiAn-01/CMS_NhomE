@@ -6,6 +6,8 @@
 /wp-content/cache/
 /wp-content/upgrade/
 /wp-content/backup*/
+# Generated media copies; source images are versioned in the theme.
+/wp-content/uploads/2026/09/widget-test-4-grid-*.png
 
 # Operating system files
 .DS_Store
