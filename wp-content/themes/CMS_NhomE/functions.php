@@ -178,6 +178,12 @@ require get_template_directory() . '/classes/class-CMS_NhomE-non-latin-languages
 // Custom CSS.
 require get_template_directory() . '/inc/custom-css.php';
 
+// News links widget shown just before the footer.
+require get_template_directory() . '/inc/class-widget-test-4.php';
+add_action( 'widgets_init', function () {
+	register_widget( 'CMS_NhomE_Widget_Test_4' );
+} );
+
 /**
  * Registers block patterns and pattern categories.
  *
@@ -841,6 +847,9 @@ function cms_nhome_module_assets() {
     wp_enqueue_style( 'cms-nhome-module6', get_theme_file_uri( '/assets/css/module6.css' ), array( 'cms-nhome-bootstrap' ), '1.0' );
     wp_enqueue_style( 'cms-nhome-module7', get_theme_file_uri( '/assets/css/module7.css' ), array( 'cms-nhome-bootstrap' ), '1.0' );
     wp_enqueue_style( 'cms-nhome-module8', get_theme_file_uri( '/assets/css/module8.css' ), array( 'cms-nhome-bootstrap' ), '1.1' );
+    if ( is_front_page() || is_home() || is_archive() || is_search() || is_singular( 'post' ) ) {
+        wp_enqueue_style( 'cms-nhome-widget-test-4', get_theme_file_uri( '/assets/css/widget-test-4.css' ), array( 'cms-nhome-bootstrap' ), '1.0' );
+    }
     if ( is_singular( 'post' ) ) {
         wp_enqueue_style( 'cms-nhome-module9', get_theme_file_uri( '/assets/css/module9.css' ), array( 'cms-nhome-module6' ), '1.0' );
         wp_enqueue_style( 'cms-nhome-module10', get_theme_file_uri( '/assets/css/module10.css' ), array( 'cms-nhome-module9' ), '1.0' );
