@@ -1,5 +1,5 @@
 <?php
-/** Trang danh sách bài viết và lưu trữ. */
+/** Trang danh sách bài viết và lưu trữ. **/
 get_header();
 ?>
 <main id="site-content">
